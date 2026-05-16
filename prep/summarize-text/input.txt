@@ -1,0 +1,7 @@
+Next-token Prediction Machine
+
+A large language model (LLM) is, at its most fundamental level, a function that takes a sequence of tokens as input and outputs a probability distribution over its entire vocabulary for what the next token should be. That is the complete description of the core operation. Everything else - the apparent reasoning, the conversational ability, the code generation - emerges from doing this one thing at enormous scale, across an enormous amount of training data.
+
+Concretely, imagine you feed the model the tokens for “The quick brown fox”. The model does not produce the word “jumps”. It produces a table of probabilities: “jumps” might have a 42% chance, “sat” a 12% chance, “leaped” an 8% chance, and every other token in a 100,000-word vocabulary gets some non-zero slice of the remaining probability mass. The model then samples from that distribution to pick the next token. That token gets appended to the sequence, and the whole process repeats until a stop condition is reached.
+
+This is called autoregressive generation. Each token generated becomes part of the input for the next prediction. The model is always asking the same question: “given everything I have seen so far, what token is most likely to come next?”
