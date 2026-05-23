@@ -37,10 +37,6 @@ def get_weather(city: str):
 
 # -----------------------------
 # Tool definition
-# Note: the OpenAI function-calling schema expects the top-level "parameters"
-# to be an object. The function itself can take a single string argument (city),
-# but it must be represented here as an object with a "city" string property.
-# This is why "type" is "object" even though the logical input is a string.
 # -----------------------------
 tools = [
     {
